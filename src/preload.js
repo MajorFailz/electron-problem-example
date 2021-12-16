@@ -1,8 +1,9 @@
-const app = require('@electron/remote').app
+const remote = require('electron').remote;
 
 document.addEventListener('DOMContentLoaded', () => {
-    let remote = BrowserWindow
-    console.log(remote);
-    document.getElementById('test-close').innerHTML = remote
-    window.honk = remote;
+    document.getElementById('test-close').addEventListener('click', function(){
+        let window = remote.getCurrentWindow();
+        window.close();
+    });
+    window.honk = remote;;
 });
